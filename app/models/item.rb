@@ -11,6 +11,8 @@ class Item < ActiveRecord::Base
         
      elsif current_day == "Tuesday"
       specials.second
+   elsif current_day == "Tuesday"
+      specials.second
 
      else
       null
