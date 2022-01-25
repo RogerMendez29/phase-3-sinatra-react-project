@@ -1,14 +1,14 @@
 puts "🌱 Seeding spices..."
 
-# Category.create(title: "Appetizer", description: "Begin your meal with one of our classic appetizers you know and love.")
-# Category.create(title: "Entree", description: "Take your pick of one of our classic main course meals.")
-# Category.create(title: "Dessert", description: "Try one of our signature desserts")
+Category.create(title: "Appetizer", description: "Begin your meal with one of our classic appetizers you know and love.")
+Category.create(title: "Entree", description: "Take your pick of one of our classic main course meals.")
+Category.create(title: "Dessert", description: "Try one of our signature desserts")
 
 
-# Item.create(name: "Fried Yuca", description: "The crispier, creamier cousin to french fries.", price: 3.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527140/Appetizers%20/fried_yucas_fy47gb.png", category_id: 1)
-# Item.create(name: "Empanada", description: "Pastry Shell, stuffed with your choice of Ground Beef or Chicken.", price: 4.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527142/Appetizers%20/empenada_yb7vow.png", category_id: 1)
-# Item.create(name: "Tostones", description: "Includes 4 Large Tostones with Mojo.", price: 3.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527142/Appetizers%20/Tostones_pky1br.png", category_id: 1)
-# Item.create(name: "Stuffed Potato", description: "Stuffed potato filled with ground beef and spices.", price: 3.39, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527142/Appetizers%20/papa_rellena_husezp.png", category_id: 1)
+Item.create(name: "Fried Yuca", description: "The crispier, creamier cousin to french fries.", price: 3.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527140/Appetizers%20/fried_yucas_fy47gb.png", category_id: 1)
+Item.create(name: "Empanada", description: "Pastry Shell, stuffed with your choice of Ground Beef or Chicken.", price: 4.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527142/Appetizers%20/empenada_yb7vow.png", category_id: 1)
+Item.create(name: "Tostones", description: "Includes 4 Large Tostones with Mojo.", price: 3.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527142/Appetizers%20/Tostones_pky1br.png", category_id: 1)
+Item.create(name: "Stuffed Potato", description: "Stuffed potato filled with ground beef and spices.", price: 3.39, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527142/Appetizers%20/papa_rellena_husezp.png", category_id: 1)
 
 # Item.create(name: "Pork Medallions", description: "Cut into chuncks of pork, and ligthly fried with mojo", price: 10.59, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527415/Entrees/Masa_de_Puerco_wkyged.png", category_id: 2)
 # Item.create(name: "Grilled Chicken", description: "Saute'ed with garlic, lemon & grilled onions", price: 9.99, image_url:"https://res.cloudinary.com/dhzstgmsp/image/upload/v1642527415/Entrees/grilled_chicken_breast_uvv7bh.png", category_id: 2)
