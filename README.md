@@ -9,8 +9,12 @@ My goal for this project is to create a database that can be used by a front-end
 For this project I used Sinatra to create multiple Requests:
 
 Get:Used to retrieve Data based on Item Category
-Posts: One to post data to the Favorites table and another to Post data to the Reviews Table.
-Delete: Used to allow clients to update their page as they see fit.
+
+Posts:
+(1)to post data to the Favorites table
+( 2)to Post data to the Reviews Table.
+
+Delete: Delete data from the Favorites table
 
 ## Github Frontend Repository
 
