@@ -1,44 +1,36 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  get '/categories' do
+  get '/category_items' do
     category = Category.all.order(:id)
     category.to_json(include: :items)
   end
-  get '/categories/:id' do
-    category = Category.find(params[:id])
-    category.to_json(include: :items)
+  get '/categories' do
+    categories = Category.all.order(:id)
+    categories.to_json
   end
+
   get '/items' do 
-    items = Item.all.order(:category_id)
+    items = Item.all.order(:id)
     items.to_json
   end
+  get '/popular' do 
+    items = Item.all.where(:popular => TRUE)
+    items.to_json
+  end
+  
   get '/items/:id' do 
     items = Item.find(params[:id])
     items.to_json
   end
-  get '/appetizers' do
-    appetizers = Category.find(1).items.order(:name)
-    appetizers.to_json 
-  end
-  get '/entrees' do
-    entrees = Category.find(2).items.order(:name)
-    entrees.to_json
-  end
-  get '/desserts' do
-    desserts = Category.find(3).items.order(:name)
-    desserts.to_json
-  end
 
   get '/specials' do
-    specials= Item.where(daily_special: true)
-    specials.to_json
+    current_day= Time.new.strftime("%A")
+    special=Item.find_by(special_day: "Monday")
+    special.to_json
   end
 
-  get '/reviews' do 
-    reviews = Review.all  
-    reviews.to_json
-  end
+
   get '/favorites' do
     favorites = Favorite.all
     favorites.to_json
@@ -50,21 +42,27 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/favorites' do
+      
       favorite = Favorite.create(
         name: params[:name],
         description: params[:description],
         price: params[:price],
         image_url: params[:image_url],
-        category_id: params[:category_id]
+        category_id: params[:category_id],
+        item_id: params[:id],
+        notes: params[:notes]
       )
       favorite.to_json
     end
 
-  delete '/reviews/:id' do
-    review = Item.find(params[:id])
-    review.destroy
-    review.to_json
+    patch '/favorites/:id' do
+      favorite_item = Favorite.find(params[:id])
+      favorite_item.update(
+        notes: params[:notes],
+      )
+      favorite_item.to_json
     end
+  
 
     post '/reviews' do
       review = Review.create(
@@ -75,14 +73,5 @@ class ApplicationController < Sinatra::Base
       )
       review.to_json
     end
-
-    patch '/reviews/:id' do
-      review = Review.find(params[:id])
-      review.update(comment: params[:comment]
-      )
-      review.to_json
-    end
-
-  
 
 end

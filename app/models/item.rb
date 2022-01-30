@@ -1,29 +1,21 @@
 require "pry"
 class Item < ActiveRecord::Base
    belongs_to :category
+   has_many :favorites
 
-   def self.set_special_of_day
-      current_day= Time.new.strftime("%A")
-      specials = Item.all.where(daily_special: true)
-
-     if current_day == "Monday"
-      specials.first
-        
-     elsif current_day == "Tuesday"
-      specials.second
-   elsif current_day == "Tuesday"
-      specials.second
-
-     else
-      null
-        
-     end
-      
-
-# binding.pry
-
+   def self.make_popular(name)
+      item = self.find_by(name: name)
+      is_popular = item.popular
+      item.update(popular: !is_popular)
    end
 
+   def self.change_available(name)
+      item = self.find_by(name: name)
+      is_available = item.availability
+      item.update(availability: !is_available)
+
+
+   end
 
 
 

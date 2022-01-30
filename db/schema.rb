@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_18_205126) do
+ActiveRecord::Schema.define(version: 2022_01_30_033108) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_01_18_205126) do
     t.decimal "price"
     t.text "image_url"
     t.integer "category_id"
+    t.integer "item_id"
+    t.text "notes", default: " "
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,11 +35,13 @@ ActiveRecord::Schema.define(version: 2022_01_18_205126) do
     t.text "description"
     t.decimal "price"
     t.text "image_url"
+    t.text "notes", default: " "
     t.boolean "availability", default: true
-    t.boolean "daily_special", default: false
+    t.string "special_day", default: " "
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "popular", default: false
   end
 
   create_table "reviews", force: :cascade do |t|
